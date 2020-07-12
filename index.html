@@ -1,59 +1,32 @@
 <html>
 <head>
-<title>Calculator</title>
-<script>
-function showresult(choise){
-var n1=parseFloat(document.getElementById('num1').value);
-var n2=parseFloat(document.getElementById('num2').value);
-var r;
-var c=choise;
-switch(c)
-	{
-	case '1':
-		r=n1+n2;
-		break;
-	case '2':
-		r=n1-n2;
-		break;
-	case '3':
-		r=n1*n2;
-		break;
-	case '4':
-		r=n1/n2;
-		break;
-	case '5':
-		r=n2*100/n1;
-		break;
-	default:
-		break;
-
-	}
-document.getElementById('result').value=r;
-}
-</script>
+<title>24 Game</title>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+<script src="helper.js"></script>
 </head>
 <body>
-<h1>My calculator</h1>
+<h1>24 Game</h1>
 <table border="1" cellpadding="5" cellspacing="5" width="600">
-	<tr align="center">
+  <tr align="center">
 		<td>First number</td>
 		<td>Second Number</td>
-		<td>Result</td>
+    <td>Third Number</td>
+    <td>Fourth Number</td>
 	</tr>
 	<tr align="center">
-		<td><input name="number1" type="text" size=10 id='num1'/></td>
-		<td><input name="number2" type="text" size=10 id='num2'/></td>
-		<td> <input type="text" id='result' readonly ></td>
+		<td><input name="num1" type="text" size=10 value="1" id='num1'/></td>
+		<td><input name="num2" type="text" size=10 value="2" id='num2'/></td>
+    <td><input name="num3" type="text" size=10 value="3" id='num3'/></td>
+    <td><input name="num4" type="text" size=10 value="4" id='num4'/></td>
 	</tr>
 	<tr>
-		<td colspan="3">
-			<button onclick="showresult('1')">+</button>
-			<button onclick="showresult('2')">-</button>
-			<button onclick="showresult('3')">*</button>
-			<button onclick="showresult('4')">/</button>
-			<button onclick="showresult('5')">%</button>
+		<td colspan="4">
+			<div><button onclick="showresult('1')">GetResult</button></div>
 		</td>
 	</tr>
+  <tr><td colspan="4"><div>Result</div></td></tr>
+  <tr><td colspan="4"><textarea id="result" name="result" value = "" rows="30" cols="78">Your result will be displayed here</textarea></td></tr>
+
 </table>
 </body>
 </html>
