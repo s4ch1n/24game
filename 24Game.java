@@ -22,14 +22,12 @@ class Solution {
         getPermutationsOps(ops, 0, new ArrayList<>());
 
         /*
-
         [3,9,7,7]
         [1,9,1,2]
         [1,3,4,6]
         [3,5,1,1]
         [3,3,8,8]
         */
-
 
         boolean returnVal = false;
 
@@ -39,8 +37,6 @@ class Solution {
         for(List<Integer> permut : permuts)
             if(evaluateAndCheck(permut, opslist))
                 returnVal = true;
-
-
         return returnVal;
 
         //System.out.println(opslist);
@@ -57,8 +53,6 @@ class Solution {
             return (double)(x * y);
         else
             return (double)(x / y);
-
-
     }
 
     public boolean evaluateAndCheck(List<Integer> num, List<List<Character>> ops) {
