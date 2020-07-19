@@ -1,4 +1,5 @@
 function showresult(choise){
+
   var n1=parseFloat(document.getElementById('num1').value);
   var n2=parseFloat(document.getElementById('num2').value);
   var n3=parseFloat(document.getElementById('num3').value);
@@ -19,7 +20,6 @@ function showresult(choise){
   var tmpRes2 = [];
   var opsPermute = [];
   var ops = ['+', '-', '*', '/'];
-  console.log("Ops Permute " + ops);
 
   getPermutationsOps(ops, 0, tmpRes2, opsPermute);
 
@@ -75,19 +75,19 @@ function evaluateAndCheck(numPermute, opsPermute, result){
 
     if(Math.abs(result1 - TWENTY_FOUR) < 0.01){
       retVal = true;
-      console.log("Result : " + n1 + op1 + n2 +op2+ n3 + op3 + n4);
+      //console.log("Result : " + n1 + op1 + n2 +op2+ n3 + op3 + n4);
       result.push("" + n1 + op1 + n2 +op2+ n3 + op3 + n4 );
     }
 
     if(Math.abs(result2 - TWENTY_FOUR) < 0.01){
       retVal = true;
-      console.log("Result : (" + n1 + op1 + n2 +")"+op2+ "("+n3 + op3 + n4 + ")")
+      //console.log("Result : (" + n1 + op1 + n2 +")"+op2+ "("+n3 + op3 + n4 + ")")
       result.push("(" + n1 + op1 + n2 +")"+op2+ "("+n3 + op3 + n4 + ")");
     }
 
     if(Math.abs(result3 - TWENTY_FOUR) < 0.01){
       retVal = true;
-      console.log("Result : (" + n1 + op1 +"("+ n2 +op2+ "("+n3 + op3 + n4 + "))" );
+      //console.log("Result : (" + n1 + op1 +"("+ n2 +op2+ "("+n3 + op3 + n4 + "))" );
       result.push("(" + n1 + op1 +"("+ n2 +op2+ "("+n3 + op3 + n4 + "))");
     }
   }

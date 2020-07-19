@@ -66,55 +66,39 @@ class Solution {
             int n3 = num.get(2) ;
             int n4 = num.get(3) ;
 
-            // All ops are equal  -
-            //if(op1 == op2 && op2 == op3){
+            // (A op1 B op2 C op3 D)
+            double result1 = operation((double) n1, (double) n2, op1);
+            result1 = operation(result1,(double) n3, op2);
+            result1 = operation(result1,(double) n4, op3);
 
-                // (A op B op C op D)
-                double result1 = operation((double) n1, (double) n2, op1);
-                result1 = operation(result1,(double) n3, op2);
-                result1 = operation(result1,(double) n4, op3);
+            //(A op1 B) op2 (D op3 D)
+            double result21 = operation((double) n1, (double) n2, op1);
+            double result22 = operation((double) n3, (double) n4, op3);
+            double result2 = operation(result21, result22, op2);
 
-                //(A op B) op (D op D)
-                double result21 = operation((double) n1, (double) n2, op1);
-                double result22 = operation((double) n3, (double) n4, op3);
-                double result2 = operation(result21, result22, op2);
+            // (A op1 ( B op2 ( C op3 D )))
+            double result31 = operation((double) n3, (double) n4, op3);
+            result31 = operation(n2, result31, op2);
+            double result3 = operation(n1, result31, op1);
 
-                // (A op1 ( B op2 ( C op3 D )))
-                double result31 = operation((double) n3, (double) n4, op3);
-                       result31 = operation(n2, result31, op2);
-                double result3 = operation(n1, result31, op1);
+            double twentyFour = 24.0d;
 
+            if(Math.abs(result1 - 24.0d) < 0.01) {
+              returnVal = true;
+              System.out.println("" + n1 + op1 + n2 +op2+ n3 + op3 + n4 );
+            }
 
+            if(Math.abs(result2 - 24.0d) < 0.01) {
+              returnVal = true;
+              System.out.println("(" + n1 + op1 + n2 +")"+op2+ "("+n3 + op3 + n4 + ")" );
+            }
 
-                double twentyFour = 24.0d;
+            if(Math.abs(result3 - 24.0d) < 0.01) {
+              returnVal = true;
+              System.out.println(result3);
+              System.out.println("(" + n1 + op1 +"("+ n2 +op2+ "("+n3 + op3 + n4 + "))" );
+            }
 
-                //System.out.println(result);
-                //if((Double.compare(result1, 24.0d) >= 0) && (Double.compare(result1, 24.0d) < 0.1)){
-                if(Math.abs(result1 - 24.0d) < 0.01) {
-                    returnVal = true;
-                    System.out.println("" + n1 + op1 + n2 +op2+ n3 + op3 + n4 );
-                }
-
-                if(Math.abs(result2 - 24.0d) < 0.01) {
-                    returnVal = true;
-                    System.out.println("(" + n1 + op1 + n2 +")"+op2+ "("+n3 + op3 + n4 + ")" );
-                }
-
-                //System.out.println(result3 + " : " + Math.abs(Double.compare(result3, 24.0d)));
-                //System.out.println("(" + n1 + op1 +"("+ n2 +op2+ "("+n3 + op3 + n4 + "))" );
-
-
-                if(Math.abs(result3 - 24.0d) < 0.01) {
-                    returnVal = true;
-                    System.out.println(result3);
-                    System.out.println("(" + n1 + op1 +"("+ n2 +op2+ "("+n3 + op3 + n4 + "))" );
-                }
-
-                // n1 * ( n2 + n3 * 4 )
-                // if(op1 == '*' || op1 == '/')
-
-
-            //}
         }
         return returnVal;
     }
